@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: "Verdana", sans-serif;
+        color: #dfdfdf;
+        border-radius: 10px;
+        font-weight: bold;
+        background-color: #3f3f3f;
+    }
+
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        background-size: 25px 25px;
+        background-image: linear-gradient(to right, #5f5f5f 1px, transparent 1px), linear-gradient(to bottom, #5f5f5f 1px, transparent 1px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input {
+        height: 20px;
+        border-radius: 5px;
+        border: 2px solid #7f7f7f;
+    }
+
+    button {
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid #0f7f0f;
+        background-color: #7fff7f;
+        color: #3f3f3f;
+    }
+
+    form {
+        text-align: center;
+        border: 3px solid #7fff7f;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    div {
+        padding: 5px;
+    }
+</style>
+<form action="../predict">
+    <h1>Predict car price</h1>
+    <div><label>
+        <div> engine_capacity:</div>
+        <input name="engine_capacity" type="text" value="{% if engine_capacity %}{{ engine_capacity }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> type:</div>
+        <input name="type" type="text" value="{% if type %}{{ type }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> registration_year:</div>
+        <input name="registration_year" type="text"
+               value="{% if registration_year %}{{ registration_year }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> gearbox:</div>
+        <input name="gearbox" type="text" value="{% if gearbox %}{{ gearbox }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> power:</div>
+        <input name="power" type="text" value="{% if power %}{{ power }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> model:</div>
+        <input name="model" type="text" value="{% if model %}{{ model }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> mileage:</div>
+        <input name="mileage" type="text" value="{% if mileage %}{{ mileage }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> fuel:</div>
+        <input name="fuel" type="text" value="{% if fuel %}{{ fuel }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> brand:</div>
+        <input name="brand" type="text" value="{% if brand %}{{ brand }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> damage:</div>
+        <input name="damage" type="text" value="{% if damage %}{{ damage }}{% endif %}">
+    </label></div>
+    <div><label>
+        <div> insurance_price:</div>
+        <input name="insurance_price" type="text" value="{% if insurance_price %}{{ insurance_price }}{% endif %}">
+    </label></div>
+    {% if price %}Price: {{ price }}{% endif %}
+    <div>
+        <button>Predict</button>
+    </div>
+</form>
+</body>
+</html>
