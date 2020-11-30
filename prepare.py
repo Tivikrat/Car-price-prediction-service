@@ -20,21 +20,28 @@ blacklist = ['engine_capacity', 'zipcode']
 def main(argv):
     input_file = None
     output_file = None
+    help_message = ' -i <input_data_path> -o <output_data_path>'
     try:
-        opts, args = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
+        opts, args = getopt.getopt(argv, "hi:o:", [])
     except getopt.GetoptError:
-        print(' -i <inputfile> -o <outputfile>')
+        print(help_message)
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print(' -i <inputfile> -o <outputfile>')
+            print(help_message)
             sys.exit()
-        elif opt in ("-i", "--ifile"):
+        elif opt == "-i":
             input_file = arg
-        elif opt in ("-o", "--ofile"):
+        elif opt == "-o":
             output_file = arg
     if input_file is not None and output_file is not None:
         prepare(input_file, output_file, ignore_columns=blacklist)
+    else:
+        if input_file is None:
+            print("Wrong -i")
+        if output_file is None:
+            print("Wrong -o")
+        print(help_message)
 
 
 if __name__ == "__main__":
