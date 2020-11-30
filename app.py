@@ -74,7 +74,7 @@ class LoadingPredictor(Predictor):
 
 @app.route('/')
 def index_page():
-    return render_template("index.html", gearbox=2)
+    return render_template("index.html")
 
 
 def int_try_parse(value):
